@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accompanying manuscript (under review)."
+title: "nacc-progression-transport: dementia progression models on NACC UDS with person-level weighting, death as a competing event and leave-one-centre-out validation"
+type: software
+authors:
+  - family-names: Tao
+    given-names: Xilin
+    orcid: "https://orcid.org/0009-0001-1957-8406"
+    affiliation: "Department of Mathematics, The Hong Kong University of Science and Technology"
+  - family-names: Chen
+    given-names: Kani
+    affiliation: "Department of Mathematics and Department of Industrial Engineering and Decision Analytics, The Hong Kong University of Science and Technology"
+repository-code: "https://github.com/gaivrt/nacc-progression-transport"
+license: MIT
+version: 0.1.0
+date-released: "2026-11-01"

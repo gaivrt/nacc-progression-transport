@@ -1,0 +1,27 @@
+[project]
+name = "nacc-progression"
+version = "0.1.0"
+description = "NACC dementia progression prediction: internal-external validation with death as a competing event"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "pandas>=3.0",
+    "pyarrow>=25.0",
+    "scikit-learn>=1.9",
+    "matplotlib>=3.9",
+    "requests>=2.32",
+    "ipykernel>=6.29",
+    "lifelines>=0.30",
+    "torch>=2.7",
+    "scikit-survival>=0.28.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

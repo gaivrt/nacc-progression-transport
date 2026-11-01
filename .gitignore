@@ -1,0 +1,14 @@
+# NACC data must never be committed (data use agreement)
+data/
+derived/
+runs/
+*.parquet
+*.csv
+!docs/**/*.csv
+# environments and caches
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.log
+*.lock.tmp
