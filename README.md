@@ -55,7 +55,7 @@ python evaluate.py --runs ../runs/full_v1 --task B --scheme loco --out ../runs/f
 | Supplement Table S1 (cohort) | `table1_v2.csv` | |
 | Table S3 (sensitivity analyses) | `sensitivity_results.csv` | |
 | Table S4 (illness-death model) | `idm_vs_aj.csv` | |
-| S4 multiple seeds, S11 Riley sample size, S12 training time, subgroups | `multiseed_summary.csv`, `riley_samplesize.csv`, `runtimes_e4.csv`, `subgroups_1000.csv` | |
+| S4 multiple seeds, S11 Riley sample size, S12 training time, subgroups | `multiseed_summary.csv`, `riley_samplesize.csv`, `runtimes_e4.csv`, `subgroups.csv` | |
 | Earlier pipeline (comparison only) | `table2_taskA_3y.csv`, `table2_taskB_3y.csv` | `evaluate.py`, ICI pooled on the original scale |
 
 ## Citation
