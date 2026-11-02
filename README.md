@@ -28,6 +28,7 @@ All scripts live in `src/`. Paths are controlled by environment variables with r
 | 3 | `evaluate.py` | IPCW time-dependent AUC, O:E, calibration slope, ICI, Brier, IPA, decision curves, per-centre and REML-pooled estimates (`metrics.py`). |
 | 4 | `e4_prep.py`, `e4_idm.py`, `e4_riley_inputs.py`, `e4_ensemble.py`, `e4_combine.py` | Sensitivity label variants, illness-death model, Riley sample-size inputs, multi-seed ensembles. |
 | 5 | `e5c_analysis.py` | Local-intercept recalibration versus local sample size, per-centre bootstrap, paired model comparisons (`NACC_RUNS` = directory with `pred_*.parquet`). |
+| 6 | `e5d_analysis.py` | Consolidated single-pass evaluation: single-model estimates with CIs and paired differences from the same bootstrap draws (B = 1,000 participant resamples in random/temporal; run with `--Bc 400` for 400 per centre in LOCO). Writes the files in `results/`. |
 
 Example (Task B, leave-one-centre-out, held-out centre 3):
 
@@ -38,6 +39,24 @@ python evaluate.py --runs ../runs/full_v1 --task B --scheme loco --out ../runs/f
 ```
 
 `tasks_full.txt`, `evals_full.txt` and `worker*.sh` are the Slurm queue files used to run all folds in parallel on the HKUST HPC4 cluster; they are kept for provenance and are not needed on a single machine.
+
+## Results and figures
+
+`results/` holds the aggregate result tables behind every number in the manuscript (no row-level NACC data); `figures/` holds the manuscript and supplement figures (300 dpi).
+
+| Manuscript item | File in `results/` | Notes |
+|---|---|---|
+| Table II (Task B, 3-year main results), Supplement Table S2 (Task A) | `sanity_point_estimates.csv` (random / temporal columns), `center_pooled.csv` (LOCO columns) | e5d, B = 1,000 / 400 per centre |
+| Table III (weighting and death handling) | `sanity_point_estimates.csv`, `scheme=random` | |
+| Table IV (paired comparisons) | `paired_loco_pooled.csv`, `model_a=crseq` | |
+| τ² and calibration-slope prediction intervals in the text | `center_pooled.csv`, `metric=oe` / `slope` | |
+| Random-split ICI differences 0.023, 0.046 | `paired_random_temporal.csv` | |
+| Fig. 4, Table S5 (sample size for intercept adjustment) | `recal_curve_rows.csv`, `fig5_recal_events_summary.csv` | E5 |
+| Supplement Table S1 (cohort) | `table1_v2.csv` | |
+| Table S3 (sensitivity analyses) | `sensitivity_results.csv` | |
+| Table S4 (illness-death model) | `idm_vs_aj.csv` | |
+| S4 multiple seeds, S11 Riley sample size, S12 training time, subgroups | `multiseed_summary.csv`, `riley_samplesize.csv`, `runtimes_e4.csv`, `subgroups_1000.csv` | |
+| Earlier pipeline (comparison only) | `table2_taskA_3y.csv`, `table2_taskB_3y.csv` | `evaluate.py`, ICI pooled on the original scale |
 
 ## Citation
 

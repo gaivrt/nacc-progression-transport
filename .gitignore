@@ -5,6 +5,7 @@ runs/
 *.parquet
 *.csv
 !docs/**/*.csv
+!results/*.csv
 # environments and caches
 .venv/
 __pycache__/
