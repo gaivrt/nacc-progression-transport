@@ -60,7 +60,7 @@ python evaluate.py --runs ../runs/full_v1 --task B --scheme loco --out ../runs/f
 
 ## Citation
 
-See `CITATION.cff`. A Zenodo DOI will be added at the first tagged release.
+See `CITATION.cff`. Archived on Zenodo: [doi:10.5281/zenodo.23876173](https://doi.org/10.5281/zenodo.23876173) (v0.1.0).
 
 ## Acknowledgement
 
