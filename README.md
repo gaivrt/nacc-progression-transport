@@ -23,7 +23,7 @@ All scripts live in `src/`. Paths are controlled by environment variables with r
 | Step | Script | Purpose |
 |---|---|---|
 | 0 | `build_v2.py` | Landmark tables for both tasks (`NACC_DATA` = parquet path, `NACC_DERIVED` = output directory). |
-| 1 | `phase1.py` | Cohort flow and descriptive tables (Table I, Supplement S2). |
+| 1 | `phase1.py` | Cohort flow and descriptive tables (Supplementary Table S1). |
 | 2 | `run_fold.py` | Train every model for one (task, scheme, fold) and write held-out predictions. Models and hyperparameters are in `models.py`, features in `features.py`. |
 | 3 | `evaluate.py` | IPCW time-dependent AUC, O:E, calibration slope, ICI, Brier, IPA, decision curves, per-centre and REML-pooled estimates (`metrics.py`). |
 | 4 | `e4_prep.py`, `e4_idm.py`, `e4_riley_inputs.py`, `e4_ensemble.py`, `e4_combine.py` | Sensitivity label variants, illness-death model, Riley sample-size inputs, multi-seed ensembles. |
@@ -46,9 +46,9 @@ python evaluate.py --runs ../runs/full_v1 --task B --scheme loco --out ../runs/f
 
 | Manuscript item | File in `results/` | Notes |
 |---|---|---|
-| Table II (Task B, 3-year main results), Supplement Table S2 (Task A) | `sanity_point_estimates.csv` (random / temporal columns), `center_pooled.csv` (LOCO columns) | e5d, B = 1,000 / 400 per centre |
-| Table III (weighting and death handling) | `sanity_point_estimates.csv`, `scheme=random` | |
-| Table IV (paired comparisons) | `paired_loco_pooled.csv`, `model_a=crseq` | |
+| Table I (Task B, 3-year main results), Supplementary Table S2 (Task A) | `sanity_point_estimates.csv` (random / temporal columns), `center_pooled.csv` (LOCO columns) | e5d, B = 1,000 / 400 per centre |
+| Table II (weighting and death handling) | `sanity_point_estimates.csv`, `scheme=random` | |
+| Table III (paired comparisons) | `paired_loco_pooled.csv`, `model_a=crseq` | |
 | τ² and calibration-slope prediction intervals in the text | `center_pooled.csv`, `metric=oe` / `slope` | |
 | Random-split ICI differences 0.023, 0.046 | `paired_random_temporal.csv` | |
 | Fig. 4, Table S5 (sample size for intercept adjustment) | `recal_curve_rows.csv`, `fig5_recal_events_summary.csv` | E5 |
